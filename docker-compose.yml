@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  user_service:
+    build:
+      context: ./services/user_service
+    ports:
+      - "5001:5001"
+  task_service:
+    build:
+      context: ./services/task_service
+    ports:
+      - "5002:5002"
+  project_service:
+    build:
+      context: ./services/project_service
+    ports:
+      - "5003:5003"
+  comment_service:
+    build:
+      context: ./services/comment_service
+    ports:
+      - "5004:5004"
+  notification_service:
+    build:
+      context: ./services/notification_service
+    ports:
+      - "5005:5005"

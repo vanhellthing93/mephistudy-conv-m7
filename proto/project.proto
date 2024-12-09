@@ -1,0 +1,22 @@
+syntax = "proto3";
+package project;
+
+service ProjectService {
+    rpc CreateProject(CreateProjectRequest) returns (ProjectResponse);
+    rpc GetProject(GetProjectRequest) returns (ProjectResponse);
+}
+
+message CreateProjectRequest {
+    string name = 1;
+    string description = 2;
+}
+
+message ProjectResponse {
+    string project_id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message GetProjectRequest {
+    string project_id = 1;
+}

@@ -1,0 +1,19 @@
+@startuml
+actor User
+
+User -> UserService: CreateUser(name, email)
+UserService -> User: UserResponse(user_id, name, email)
+
+User -> TaskService: CreateTask(title, description, user_id)
+TaskService -> User: TaskResponse(task_id, title, description, user_id)
+
+User -> ProjectService: CreateProject(name, description)
+ProjectService -> User: ProjectResponse(project_id, name, description)
+
+User -> CommentService: CreateComment(task_id, content, user_id)
+CommentService -> User: CommentResponse(comment_id, task_id, content, user_id)
+
+User -> NotificationService: SendNotification(user_id, message)
+NotificationService -> User: NotificationResponse(notification_id, user_id, message)
+
+@enduml

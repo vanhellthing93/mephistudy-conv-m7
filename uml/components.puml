@@ -1,0 +1,34 @@
+@startuml
+!define RECTANGLE class
+
+RECTANGLE UserService {
+  + CreateUser(CreateUserRequest): UserResponse
+  + GetUser(GetUserRequest): UserResponse
+}
+
+RECTANGLE TaskService {
+  + CreateTask(CreateTaskRequest): TaskResponse
+  + GetTask(GetTaskRequest): TaskResponse
+}
+
+RECTANGLE ProjectService {
+  + CreateProject(CreateProjectRequest): ProjectResponse
+  + GetProject(GetProjectRequest): ProjectResponse
+}
+
+RECTANGLE CommentService {
+  + CreateComment(CreateCommentRequest): CommentResponse
+  + GetComment(GetCommentRequest): CommentResponse
+}
+
+RECTANGLE NotificationService {
+  + SendNotification(SendNotificationRequest): NotificationResponse
+  + GetNotification(GetNotificationRequest): NotificationResponse
+}
+
+UserService --> TaskService : Assign tasks to users
+UserService --> ProjectService : Add users to projects
+TaskService --> CommentService : Add comments to tasks
+UserService --> NotificationService : Send notifications to users
+
+@enduml
