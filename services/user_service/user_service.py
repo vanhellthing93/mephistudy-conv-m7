@@ -15,7 +15,7 @@ class UserService(user_service_pb2_grpc.UserServiceServicer):
         return user_service_pb2.UserResponse(user_id=request.user_id, name="John Doe", email="john.doe@example.com")
     
     def SendMessage(self, request, context):
-        with grpc.insecure_channel('127.0.0.1:5002') as channel:
+        with grpc.insecure_channel('order_service:5002') as channel:
             stub = order_service_pb2_grpc.OrderServiceStub(channel)
             response = stub.ReceiveMessage(order_service_pb2.MessageRequest(message=request.message))
             print(f"UserService sent message: {request.message}")
