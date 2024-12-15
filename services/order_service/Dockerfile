@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "comment_service.py"]
+CMD ["python", "order_service.py"]
