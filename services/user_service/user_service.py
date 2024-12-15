@@ -1,8 +1,6 @@
 import grpc
 import user_service_pb2
 import user_service_pb2_grpc
-import order_service_pb2
-import order_service_pb2_grpc
 from concurrent import futures
 
 class UserService(user_service_pb2_grpc.UserServiceServicer):
