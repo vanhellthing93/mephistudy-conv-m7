@@ -1,6 +1,7 @@
 import grpc
 import user_service_pb2
 import user_service_pb2_grpc
+import order_service_pb2
 import order_service_pb2_grpc
 from concurrent import futures
 
@@ -16,7 +17,7 @@ class UserService(user_service_pb2_grpc.UserServiceServicer):
     def SendMessage(self, request, context):
         with grpc.insecure_channel('order_service:5002') as channel:
             stub = order_service_pb2_grpc.OrderServiceStub(channel)
-            response = stub.ReceiveMessage(order_service_pb2_grpc.MessageRequest(message=request.message))
+            response = stub.ReceiveMessage(order_service_pb2.MessageRequest(message=request.message))
             print(f"UserService sent message: {request.message}")
             return user_service_pb2.MessageResponse(status="Message sent")
 
