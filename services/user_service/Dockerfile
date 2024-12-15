@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "user_service.py"]
+CMD ["python", "-u", "user_service.py"]
